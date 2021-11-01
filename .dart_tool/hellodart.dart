@@ -8,6 +8,9 @@
 @License :   (C)Copyright 2021-2022
 @Desc    :   None
 */
+import 'dart:io';
+import 'dart:math';
+import 'dart:async';
 
 // 一个简单的 DART 程序
 void printInteger(int aNumber) {
@@ -16,6 +19,17 @@ void printInteger(int aNumber) {
 
 int _readThermometer() {
   return 42;
+}
+
+class point {
+  double? x;
+  double? y;
+
+  Point(double x, double y) {
+    // There's a better way to do this, stay tuned.
+    this.x = x;
+    this.y = y;
+  }
 }
 
 void variable() {
@@ -67,6 +81,67 @@ void variable() {
   // 集合生成与类型检查
   const set = {if (list is List<int>) ...list};
   print(' 类型检查 集合: $set ');
+  const int j = 1;
+  //If和Else
+  if (j == 0) {
+    print('112');
+  } else {
+    print(' 223');
+  }
+  var message = StringBuffer(' liufengyuanshiwoerzi');
+  for (var i = 1; i < 5; i++) {
+    message.write('!');
+    print(message);
+  }
+  var callbacks = [];
+  for (var i = 0; i < 2; ++i) {
+    callbacks.add(() => print(i));
+    //print(callbacks);
+  }
+  callbacks.forEach((c) => c());
+  for (var candidate in callbacks) {
+    print(candidate.toString());
+  }
+  var command = 'OPEN';
+  switch (command) {
+    case 'CLOSED':
+      print('executeClosed');
+      break;
+    case 'PENDING':
+      print('executePending()');
+      break;
+    case 'APPROVED':
+      print('executeApproved()');
+      break;
+    case 'DENIED':
+      print('executeDenied()');
+      break;
+    case 'OPEN':
+      print('executeOpen()');
+      break;
+    default:
+      print('executeUnknown()');
+  }
+  var number = 0;
+  assert(number < 100);
+  //throw 'liu feng yuan is wo er!';
+  try {
+    var a = 0;
+    a = a + 1;
+  } finally {
+    print('1111');
+  }
+  var p1 = Point(2, 2);
+  print('the type of a is ${p1.runtimeType}');
+
+  var point1 = point();
+  point1.x = 4;
+  assert(point1.x == 4);
+  assert(point1.y == null);
+
+  var names = <String>[];
+  names.addAll(['liu', 'feng', 'yuan', 'shi', 'wo', 'er', 'zi']);
+  print(names);
 }
 
 void main(List<String> arguments) {
